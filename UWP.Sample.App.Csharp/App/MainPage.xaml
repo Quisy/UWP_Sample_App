@@ -8,7 +8,17 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="Button_HelloWorld" Content="Hello World" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="135" Click="Button_HelloWorld_Click"/>
+        <TextBlock x:Name="TextBlock_FirstName"  HorizontalAlignment="Center" Margin="0,30,130,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Height="32"/>
+        <TextBox x:Name="TextBox_UserFirstName" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="{Binding FirstName, Mode=TwoWay}" VerticalAlignment="Top" Width="200"/>
+
+        <TextBlock x:Name="TextBlock_LastName"  HorizontalAlignment="Center" Margin="0,100,130,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Height="32"/>
+        <TextBox x:Name="TextBox_UserLastName" HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" Text="{Binding LastName, Mode=TwoWay}" VerticalAlignment="Top" Width="200"/>
+        
+        <TextBlock x:Name="TextBlock_FullName" HorizontalAlignment="Center" Margin="0,160,0,0" TextWrapping="Wrap" Text="{Binding UserFullName}" VerticalAlignment="Top"/>
+
+        <Button x:Name="Button_HelloWorld" Content="Hello World" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Width="135" Click="Button_HelloWorld_Click"/>
+       
+       
 
     </Grid>
 </Page>
