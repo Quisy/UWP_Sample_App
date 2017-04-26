@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CommandHandler.cs" />
+    <Compile Include="Helpers\LocalSettingsManager.cs" />
+    <Compile Include="Helpers\LocalStorageManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

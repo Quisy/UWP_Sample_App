@@ -15,10 +15,13 @@
         <TextBox x:Name="TextBox_UserLastName" HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" Text="{Binding LastName, Mode=TwoWay}" VerticalAlignment="Top" Width="200"/>
         
         <TextBlock x:Name="TextBlock_FullName" HorizontalAlignment="Center" Margin="0,160,0,0" TextWrapping="Wrap" Text="{Binding UserFullName}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock_saving" HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" Text="Saving ..." VerticalAlignment="Top" Visibility="{Binding IsSaving}"/>
 
-        <Button x:Name="Button_HelloWorld" Content="Hello World" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Width="135" Click="Button_HelloWorld_Click"/>
-       
-       
+        <Button x:Name="Button_SaveUser" Content="Save Data" HorizontalAlignment="Center" Margin="113,236,112,0" VerticalAlignment="Top" Width="135" Command="{Binding SaveUserCommand}"/>
+        <Button x:Name="Button_LoadUser" Content="Load Data" HorizontalAlignment="Center" Margin="113,273,112,0" VerticalAlignment="Top" Width="135" Command="{Binding LoadUserCommand}"/>
+        <CheckBox x:Name="CheckBox_SaveDataAutomatically" Content="Save data automatically " HorizontalAlignment="Center" Margin="0,305,0,0" VerticalAlignment="Top" IsChecked="{Binding AutomaticallySaving, Mode=TwoWay}" />
+
+
 
     </Grid>
 </Page>
