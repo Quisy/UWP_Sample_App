@@ -19,9 +19,9 @@
 
         <Button x:Name="Button_SaveUser" Content="Save Data" HorizontalAlignment="Center" Margin="113,236,112,0" VerticalAlignment="Top" Width="135" Command="{Binding SaveUserCommand}"/>
         <Button x:Name="Button_LoadUser" Content="Load Data" HorizontalAlignment="Center" Margin="113,273,112,0" VerticalAlignment="Top" Width="135" Command="{Binding LoadUserCommand}"/>
-        <CheckBox x:Name="CheckBox_SaveDataAutomatically" Content="Save data automatically " HorizontalAlignment="Center" Margin="0,305,0,0" VerticalAlignment="Top" IsChecked="{Binding AutomaticallySaving, Mode=TwoWay}" />
 
 
+        <Button x:Name="Button_Settings" Content="Settings" HorizontalAlignment="Center" Margin="113,400,112,0" VerticalAlignment="Top" Width="135" Click="Button_Settings_Click"/>
 
     </Grid>
 </Page>

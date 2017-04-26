@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using App.ViewModels;
+using App.Views;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -37,6 +38,11 @@ namespace App
         async void App_Suspending(Object sender, Windows.ApplicationModel.SuspendingEventArgs e)
         {
             viewModel.SaveUserCommand.Execute(null);
+        }
+
+        private void Button_Settings_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SettingsPage), null);
         }
     }
 }

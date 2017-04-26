@@ -18,9 +18,9 @@ namespace App.ViewModels
 
         private string _firstName;
         private string _lastName;
-        private bool _automaticallySaving;
         private bool _isSaving;
         private bool _canSave = true;
+        private bool _saveAutomatically;
 
         public string FirstName
         {
@@ -31,7 +31,7 @@ namespace App.ViewModels
                 RaisePropertyChanged(nameof(FirstName));
                 RaisePropertyChanged(nameof(UserFullName));
 
-                if (AutomaticallySaving && _canSave)
+                if (_saveAutomatically && _canSave)
                     SaveUserCommand.Execute(null);
             }
         }
@@ -45,22 +45,14 @@ namespace App.ViewModels
                 RaisePropertyChanged(nameof(LastName));
                 RaisePropertyChanged(nameof(UserFullName));
 
-                if (AutomaticallySaving && _canSave)
+                if (_saveAutomatically && _canSave)
                     SaveUserCommand.Execute(null);
             }
         }
 
         public string UserFullName => $"{FirstName} {LastName}";
 
-        public bool AutomaticallySaving
-        {
-            get { return _automaticallySaving; }
-            set
-            {
-                _automaticallySaving = value;
-                SaveAutomaticallySavingSetting();
-            }
-        }
+        
 
         public bool IsSaving
         {
@@ -123,20 +115,15 @@ namespace App.ViewModels
             _canSave = true;
         }
 
-        private void SaveAutomaticallySavingSetting()
-        {
-            _localSettingsManager.SaveSetting("SaveUserDataAutomatically", AutomaticallySaving);
-        }
-
         private void LoadAutomaticallySavingSetting()
         {
             try
             {
-                AutomaticallySaving = (bool)_localSettingsManager.LoadSetting("SaveUserDataAutomatically");
+                _saveAutomatically = (bool)_localSettingsManager.LoadSetting("SaveUserDataAutomatically");
             }
             catch (Exception)
             {
-                AutomaticallySaving = false;
+                _saveAutomatically = false;
             }
         }
 
