@@ -24,10 +24,19 @@ namespace App
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private MainPageViewModel viewModel;
+
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = new MainPageViewModel();
+            viewModel = new MainPageViewModel();
+            this.DataContext = viewModel;
+            Application.Current.Suspending += new SuspendingEventHandler(App_Suspending);
+        }
+
+        async void App_Suspending(Object sender, Windows.ApplicationModel.SuspendingEventArgs e)
+        {
+            viewModel.SaveUserCommand.Execute(null);
         }
     }
 }
