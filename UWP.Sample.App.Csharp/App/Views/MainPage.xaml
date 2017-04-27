@@ -5,8 +5,13 @@
     xmlns:local="using:App"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:App.Converters"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="TextBlock_FirstName"  HorizontalAlignment="Center" Margin="0,30,130,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Height="32"/>
         <TextBox x:Name="TextBox_UserFirstName" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="{Binding FirstName, Mode=TwoWay}" VerticalAlignment="Top" Width="200"/>
@@ -15,7 +20,7 @@
         <TextBox x:Name="TextBox_UserLastName" HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" Text="{Binding LastName, Mode=TwoWay}" VerticalAlignment="Top" Width="200"/>
         
         <TextBlock x:Name="TextBlock_FullName" HorizontalAlignment="Center" Margin="0,160,0,0" TextWrapping="Wrap" Text="{Binding UserFullName}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock_saving" HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" Text="Saving ..." VerticalAlignment="Top" Visibility="{Binding IsSaving}"/>
+        <TextBlock x:Name="TextBlock_saving" HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" Text="Saving ..." VerticalAlignment="Top" Visibility="{Binding IsSaving, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
         <Button x:Name="Button_SaveUser" Content="Save Data" HorizontalAlignment="Center" Margin="113,236,112,0" VerticalAlignment="Top" Width="135" Command="{Binding SaveUserCommand}"/>
         <Button x:Name="Button_LoadUser" Content="Load Data" HorizontalAlignment="Center" Margin="113,273,112,0" VerticalAlignment="Top" Width="135" Command="{Binding LoadUserCommand}"/>

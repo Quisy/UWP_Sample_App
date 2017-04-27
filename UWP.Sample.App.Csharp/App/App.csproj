@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Helpers\CommandHandler.cs" />
     <Compile Include="Helpers\LocalSettingsManager.cs" />
     <Compile Include="Helpers\LocalStorageManager.cs" />

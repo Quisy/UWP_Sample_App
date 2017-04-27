@@ -105,14 +105,22 @@ namespace App.ViewModels
 
         private async Task LoadUserData()
         {
-            _canSave = false;
+            try
+            {
+                _canSave = false;
 
-            User user = JsonConvert.DeserializeObject<User>(await _localStorageManager.ReadData("UserData"));
+                User user = JsonConvert.DeserializeObject<User>(await _localStorageManager.ReadData("UserData"));
 
-            this.FirstName = user.FirstName;
-            this.LastName = user.LastName;
+                this.FirstName = user.FirstName;
+                this.LastName = user.LastName;
 
-            _canSave = true;
+                _canSave = true;
+            }
+            catch (Exception)
+            {
+                _canSave = true;
+            }
+            
         }
 
         private void LoadAutomaticallySavingSetting()
